@@ -1,0 +1,13 @@
+<!ELEMENT Company (Employee+)>
+
+<!ELEMENT Employee (name, depName, salary?)>
+
+<!ATTLIST Employee
+    id ID #REQUIRED
+    age CDATA "20"
+    gender (male|female) "female"
+>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT depName (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>

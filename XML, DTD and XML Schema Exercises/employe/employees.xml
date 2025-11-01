@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Company SYSTEM "employees.dtd">
+
+<Company>
+    <Employee id="e101" age="32" gender="female">
+        <name>Alice Johnson</name>
+        <depName>Marketing Department</depName>
+        <salary>60000</salary>
+    </Employee>
+
+    <Employee id="e102">
+        <name>Bob Williams</name>
+        <depName>Teaching Department</depName>
+        <salary>55000</salary>
+    </Employee>
+
+    <Employee id="e103" age="28" gender="male">
+        <name>Charlie Brown</name>
+        <depName>Teaching Management Department</depName>
+    </Employee>
+</Company>

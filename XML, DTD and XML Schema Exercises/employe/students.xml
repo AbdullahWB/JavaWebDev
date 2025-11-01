@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StudentRoster xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="students.xsd">
+
+    <Student id="1">
+        <Name>Zhang San</Name>
+        <Gender>Male</Gender>
+        <Age>200</Age>
+    </Student>
+
+    <Student id="2">
+        <Name>Li Si</Name>
+        <Gender>Female</Gender>
+        <Age>19</Age>
+    </Student>
+
+    <Student id="3">
+        <Name>Wang Wu</Name>
+        <Gender>Male</Gender>
+        <Age>21</Age>
+    </Student>
+
+</StudentRoster>
