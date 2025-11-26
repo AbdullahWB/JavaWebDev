@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <jsp:include page="/pages/includes/header.jsp" />
 
 <main class="site-container mb-4">
@@ -9,31 +9,33 @@
           <div class="col-md-4">
             <div class="book-image"></div>
           </div>
-          <div class="col-md-8">
-            <h3>
-              <%= book == null ? "Book not found" : book.getName() %>
-            </h3>
-            <p class="text-muted">ID: <%= book == null ? "N/A" : book.getId() %></p>
 
+          <div class="col-md-8">
+            <!-- Title -->
+            <h3>${book != null ? book.name : 'Book not found'}</h3>
+
+            <!-- ID -->
+            <p class="text-muted">ID: ${book != null ? book.id : 'N/A'}</p>
+
+            <!-- Description -->
             <p>
               <strong>Description:</strong><br />
-              This is a demo description for "<%= book == null ? "" : book.getName()
-              %>". Replace with real content as needed.
+              This is a demo description for "<span
+                >${book != null ? book.name : ''}</span
+              >". Replace with real content as needed.
             </p>
 
-            <div class="d-flex gap-2 mt-4">
-              <a
-                class="btn btn-outline-secondary"
-                href="${pageContext.request.contextPath}/listBooks"
-                >Back to list</a
-              >
-
+            <!-- Purchase form -->
+            <div class="mt-4">
               <form
                 action="${pageContext.request.contextPath}/purchase"
                 method="post"
               >
-                <input type="hidden" name="id" value="<%= book == null ? "" :
-                book.getId() %>"/>
+                <input
+                  type="hidden"
+                  name="id"
+                  value="${book != null ? book.id : ''}"
+                />
                 <button class="btn btn-primary" type="submit">Purchase</button>
               </form>
             </div>

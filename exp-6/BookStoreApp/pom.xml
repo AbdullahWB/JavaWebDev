@@ -23,19 +23,19 @@
 
 
   <dependencies>
-    <!-- Jakarta Servlet API (for Tomcat 11+) provided by container -->
+    <!-- Servlet API 5.0 (Tomcat 10.x) -->
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
-      <version>6.0.0</version>
+      <version>5.0.0</version>
       <scope>provided</scope>
     </dependency>
 
-    <!-- Jakarta JSP API (provided by container) -->
+    <!-- JSP API 3.0 (Tomcat 10.x) -->
     <dependency>
       <groupId>jakarta.servlet.jsp</groupId>
       <artifactId>jakarta.servlet.jsp-api</artifactId>
-      <version>3.1.0</version>
+      <version>3.0.0</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

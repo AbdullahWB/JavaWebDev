@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="com.example.bookstore.Book" %>
-<%
-    // Get the Book object that PurchaseServlet put into the request
-    Book book = (Book) request.getAttribute("book");
-%>
-
+Book book = BookDB.getBook(id); req.setAttribute("book", book);
+req.getRequestDispatcher("/pages/success.jsp").forward(req, resp); ```
+:contentReference[oaicite:3]{index=3} So we can do the same trick: no
+scriptlets, only EL. **Path:** `src/main/webapp/pages/success.jsp` > Again:
+delete everything in the file and replace with this: ```jsp <%@ page
+contentType="text/html;charset=UTF-8" %>
 <jsp:include page="/pages/includes/header.jsp" />
 
 <main class="site-container mb-4">
@@ -13,9 +13,8 @@
         <div style="font-size: 3rem; margin-bottom: 1rem">🎉</div>
         <h3>Purchase Successful!</h3>
         <p class="mb-3">Thank you — you purchased:</p>
-        <p class="fw-bold">
-          <%= (book == null) ? "Unknown Book" : book.getName() %>
-        </p>
+
+        <p class="fw-bold">${book != null ? book.name : 'Unknown Book'}</p>
 
         <a
           class="btn btn-primary mt-3"

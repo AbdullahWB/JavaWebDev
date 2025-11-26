@@ -15,7 +15,7 @@ public class BookServlet extends HttpServlet {
             throws ServletException, IOException {
         String id = req.getParameter("id");
         Book book = BookDB.getBook(id);
-        req.setAttribute("book", book);
+        req.setAttribute("book", book); // ✅ correct
         req.getRequestDispatcher("/pages/book.jsp").forward(req, resp);
     }
 }
