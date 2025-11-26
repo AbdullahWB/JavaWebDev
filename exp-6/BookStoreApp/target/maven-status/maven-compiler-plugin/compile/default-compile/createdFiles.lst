@@ -1,0 +1,5 @@
+com\example\bookstore\BookDB.class
+com\example\bookstore\ListBookServlet.class
+com\example\bookstore\Book.class
+com\example\bookstore\PurchaseServlet.class
+com\example\bookstore\BookServlet.class

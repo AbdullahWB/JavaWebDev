@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;700&display=swap");
+
+:root {
+  --primary: #345c8c;
+  --accent: #f28c38;
+  --bg-light: #f8f9fa;
+  --text-dark: #333333;
+  --text-muted: #6c757d;
+  --card-bg: #ffffff;
+  --border-radius: 0.8rem;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: "Lato", sans-serif;
+  color: var(--text-dark);
+}
+
+.navbar-brand {
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.header-hero {
+  background: url("images/header-bg.jpg") no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 60px 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.header-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.header-hero .site-container {
+    position: relative;
+}
+
+.header-hero h1 {
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.site-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.card-book {
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--card-bg);
+  overflow: hidden;
+}
+
+.card-book:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-book .book-image {
+    height: 200px;
+    background: url('images/book-placeholder.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.book-title {
+  font-family: "Lora", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.book-id {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2a4a70;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.btn-accent:hover {
+    background-color: #d97926;
+    color: white;
+}
+
+
+.detail-box {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
