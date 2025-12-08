@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+  <div class="container my-5">
+    <h2>Shopping Cart</h2>
+    <div th:if="${#lists.isEmpty(cart.items)}">
+      <p>Your cart is empty. <a th:href="@{/shop}">Browse cakes</a>.</p>
+    </div>
+    <div th:if="${!#lists.isEmpty(cart.items)}">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="it : ${cart.items}">
+            <td>
+              <img
+                th:src="${it.imageUrl}"
+                style="width: 80px; height: 60px; object-fit: cover"
+                class="me-2"
+              />
+              <span th:text="${it.title}">Item</span>
+            </td>
+            <td th:text="${'$' + it.price}">$0.00</td>
+            <td>
+              <form th:action="@{/cart/update}" method="post" class="d-inline">
+                <input
+                  type="hidden"
+                  name="productId"
+                  th:value="${it.productId}"
+                />
+                <input
+                  type="number"
+                  name="quantity"
+                  th:value="${it.quantity}"
+                  min="0"
+                  style="width: 80px"
+                />
+                <button class="btn btn-sm btn-secondary">Update</button>
+              </form>
+            </td>
+            <td th:text="${'$' + it.total}">$0.00</td>
+            <td>
+              <form th:action="@{/cart/remove}" method="post">
+                <input
+                  type="hidden"
+                  name="productId"
+                  th:value="${it.productId}"
+                />
+                <button class="btn btn-sm btn-danger">Remove</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-end">
+        <div>
+          <h4>Subtotal: <span th:text="${'$' + cart.total}">$0.00</span></h4>
+          <form th:action="@{/cart/checkout}" method="post">
+            <button class="btn btn-success">Checkout (mock)</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

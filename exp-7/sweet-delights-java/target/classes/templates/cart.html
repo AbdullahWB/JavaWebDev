@@ -1,0 +1,92 @@
+<!-- src/main/resources/templates/cart.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <th:block
+    th:replace="fragments/head :: site-head('Sweet Delights – Cart')"
+  ></th:block>
+  <body class="page">
+    <th:block th:replace="fragments/navbar :: navbar('shop')"></th:block>
+
+    <main class="section-pad">
+      <div class="container">
+        <h2 class="fw-bold mb-4">Your Cart</h2>
+        <div th:if="${#lists.isEmpty(items)}" class="alert alert-info">
+          Your cart is empty.
+        </div>
+
+        <div class="table-responsive" th:if="${!#lists.isEmpty(items)}">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th style="width: 120px">Qty</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="i : ${items}">
+                <td>
+                  <div class="d-flex align-items-center gap-3">
+                    <img
+                      th:src="@{${i.product.image}}"
+                      class="rounded"
+                      style="width: 75px; height: 75px; object-fit: cover"
+                    />
+                    <div>
+                      <strong th:text="${i.product.name}">Name</strong><br />
+                      <small class="text-muted" th:text="${i.product.category}"
+                        >Category</small
+                      >
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <form
+                    class="d-flex"
+                    th:action="@{'/cart/update/' + ${i.product.id}}"
+                    method="post"
+                  >
+                    <input
+                      class="form-control form-control-sm me-2"
+                      type="number"
+                      name="qty"
+                      min="0"
+                      th:value="${i.qty}"
+                    />
+                    <button
+                      class="btn btn-sm btn-outline-secondary"
+                      type="submit"
+                    >
+                      Update
+                    </button>
+                  </form>
+                </td>
+                <td
+                  class="fw-bold"
+                  th:text="${#numbers.formatDecimal(i.product.price * i.qty,1,2)}"
+                >
+                  $0.00
+                </td>
+                <td>
+                  <form
+                    th:action="@{'/cart/remove/' + ${i.product.id}}"
+                    method="post"
+                  >
+                    <button class="btn btn-sm btn-outline-danger">
+                      Remove
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <a th:href="@{/shop}" class="btn btn-secondary">Continue Shopping</a>
+      </div>
+    </main>
+
+    <th:block th:replace="fragments/footer :: footer"></th:block>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!-- src/main/resources/templates/shop.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <th:block
+    th:replace="fragments/head :: site-head('Sweet Delights – Shop')"
+  ></th:block>
+  <body class="page">
+    <th:block th:replace="fragments/navbar :: navbar('shop')"></th:block>
+
+    <main>
+      <header class="py-5 bg-light text-center">
+        <div class="container">
+          <h1 class="display-5 fw-bold">Shop Our Cakes</h1>
+          <p class="lead text-muted">
+            Browse handcrafted cakes for every taste and occasion.
+          </p>
+        </div>
+      </header>
+
+      <section class="section-pad">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-sm-6 col-lg-4" th:each="p : ${products}">
+              <div class="card h-100 shadow-sm">
+                <div class="ratio ratio-4x3">
+                  <img
+                    th:src="@{${p.image}}"
+                    class="card-img-top object-fit-cover"
+                    th:alt="${p.name}"
+                  />
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <span class="badge bg-secondary mb-2" th:text="${p.category}"
+                    >Category</span
+                  >
+                  <h5 class="card-title" th:text="${p.name}">Name</h5>
+                  <p
+                    class="price mb-1"
+                    th:text="${#numbers.formatDecimal(p.price,1,2)}"
+                  >
+                    $0.00
+                  </p>
+                  <div class="mt-auto d-grid gap-2">
+                    <a
+                      th:href="@{'/product/' + ${p.id}}"
+                      class="btn btn-outline-secondary"
+                      >Details</a
+                    >
+                    <form th:action="@{'/cart/add/' + ${p.id}}" method="post">
+                      <button class="btn btn-outline-primary" type="submit">
+                        Add to Cart
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /each -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <th:block th:replace="fragments/footer :: footer"></th:block>
+  </body>
+</html>

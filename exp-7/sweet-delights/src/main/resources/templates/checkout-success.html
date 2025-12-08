@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+  <div class="container my-5 text-center">
+    <h2>Thank you!</h2>
+    <p>Your order (mock) has been placed.</p>
+    <p>Total charged: <strong th:text="${'$' + total}">$0.00</strong></p>
+    <a class="btn btn-primary" th:href="@{/}">Back to Home</a>
+  </div>
+</html>

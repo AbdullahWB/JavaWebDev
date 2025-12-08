@@ -1,0 +1,9 @@
+com\example\sweetdelights\repo\InMemoryProductRepository.class
+com\example\sweetdelights\web\SimplePageController.class
+com\example\sweetdelights\SweetDelightsApplication.class
+com\example\sweetdelights\web\ShopController.class
+com\example\sweetdelights\model\Product.class
+com\example\sweetdelights\web\HomeController.class
+com\example\sweetdelights\web\CartController$1Item.class
+com\example\sweetdelights\web\ProductController.class
+com\example\sweetdelights\web\CartController.class

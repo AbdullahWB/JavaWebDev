@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <th:block
+    th:replace="fragments/head :: site-head('Sweet Delights – Contact')"
+  ></th:block>
+  <body class="page">
+    <th:block th:replace="fragments/navbar :: navbar('contact')"></th:block>
+
+    <main>
+      <header class="py-5 bg-light text-center">
+        <div class="container">
+          <h1 class="display-5 fw-bold">Get in Touch</h1>
+          <p class="lead text-muted">We'd love to hear from you!</p>
+        </div>
+      </header>
+
+      <section class="section-pad">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-6">
+              <form>
+                <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input class="form-control" placeholder="Your Name" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="Type your message here..."
+                  ></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            <div class="col-lg-6">
+              <h4 class="fw-bold mb-3">Contact Details</h4>
+              <p>
+                <i class="bi bi-geo-alt-fill me-2"></i>123 Cake Lane,
+                Bakerville, USA
+              </p>
+              <p>
+                <i class="bi bi-envelope-fill me-2"></i
+                >contact@sweetdelights.com
+              </p>
+              <p><i class="bi bi-telephone-fill me-2"></i>+1 (555) 123-4567</p>
+              <div class="ratio ratio-4x3">
+                <img
+                  th:src="@{/images/map-placeholder.jpg}"
+                  class="img-fluid rounded shadow object-fit-cover"
+                  alt="Map"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <th:block th:replace="fragments/footer :: footer"></th:block>
+  </body>
+</html>

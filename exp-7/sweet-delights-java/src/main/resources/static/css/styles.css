@@ -1,0 +1,37 @@
+/* src/main/resources/static/css/styles.css */
+
+/* existing light values */
+:root {
+  --primary-color: #e3b7bf;
+  --secondary-color: #f7e6e8;
+  --accent-color: #5d4037;
+  --card-radius: 0.75rem;
+}
+
+/* ...your existing CSS... */
+
+/* Dark-mode overrides */
+:root[data-bs-theme="dark"] {
+  /* Use Bootstrap’s dark background tokens as a baseline */
+  --secondary-color: var(--bs-body-bg); /* usually #212529 in dark */
+  --accent-color: var(--bs-emphasis-color); /* readable text color */
+  --primary-color: #cf94a0; /* slightly dimmed pink */
+
+  /* Optional: adjust component looks for dark */
+  --card-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.35);
+}
+
+:root[data-bs-theme="dark"] body {
+  color: var(--bs-body-color); /* Bootstrap’s readable text */
+  background-color: var(--secondary-color);
+}
+
+:root[data-bs-theme="dark"] .card {
+  background: var(--bs-body-bg);
+  box-shadow: var(--card-shadow);
+}
+
+:root[data-bs-theme="dark"] .btn-primary {
+  /* ensure contrast on dark backgrounds */
+  color: #fff;
+}
